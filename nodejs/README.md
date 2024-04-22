@@ -10,7 +10,7 @@ Expected output is something like (format is not super important):
 
 ```
 ✅ synchronous suite > passes
-❌ synchronous suite > fails
+❌ synchronous suite > fails: oh what, surprising failure
 ✅ asynchronous suite > passes
-❌ asynchronous suite > fails
+❌ asynchronous suite > fails: that's strange
 ```

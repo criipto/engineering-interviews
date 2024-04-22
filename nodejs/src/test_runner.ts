@@ -8,6 +8,6 @@ export function it(name: string, fn: () => void | Promise<void>) {
   
 }
 
-process.nextTick(() => {
+process.nextTick(async () => {
   console.log('A clue');
 });

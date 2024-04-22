@@ -1,6 +1,10 @@
 import assert from 'node:assert';
 import { describe, it } from '../src/test_runner';
 
+const wait = (duration: number) => {
+  return new Promise(resolve => setTimeout(resolve, duration));
+}
+
 describe('synchronous suite', () => {
   it('passes', () => {
     assert(true === true);
@@ -14,6 +18,7 @@ describe('synchronous suite', () => {
 
 describe('asynchronous suite', () => {
   it('passes', async () => {
+    await wait(200);
     const actual = await new Promise((resolve, reject) => {
       resolve(true as boolean);
     });
@@ -23,6 +28,7 @@ describe('asynchronous suite', () => {
     const actual = await new Promise((resolve, reject) => {
       resolve(false as boolean);
     });
-    assert(actual === true, 'oh what, surprising failure');
+    await wait(200);
+    assert(actual === true, 'that\'s strange');
   });
 });
