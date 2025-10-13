@@ -2,7 +2,11 @@
 
 ## Problem description
 
-Help us find the directory across our repositories with the most lines of code (LOC).
+Help us determine which directory (across all files) contains the largest number of lines of code (LOC).
+
+> [!NOTE]
+> The LOC value of a directory does not include its subdirectories.
+> Therefore you should not sum or accumulate LOC values.
 
 You are allowed to install additional dependenies if you like, but the problem is solvable purely with the standard library.
 
@@ -37,6 +41,35 @@ a/b/c = xxx LOC
 ```
 
 where `a/b/c` is the path to the directory (in this example the directory 'c' is a subdirectory of 'b', which itself is a subdirectory of 'a') and `xxx` is the lines of code in the directory 'c'.
+
+### Example
+
+Given this file:
+
+```json
+{
+  "name": "root",
+  "loc": 0,
+  "subDirs": [
+    { "name": "a", "loc": 42, "subDirs": [] }
+    {
+      "name": "b",
+      "loc": 30,
+      "subDirs": [
+        { "name": "c", "loc": 9001 "subDirs": [] },
+      ]
+    }
+    { "name": "d", "loc": 52 }
+  ],
+}
+```
+
+Your solution should print:
+
+```
+The largest directory is:
+root/b/c = 9001 LOC
+```
 
 ## Getting started
 
